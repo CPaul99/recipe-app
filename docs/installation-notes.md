@@ -88,3 +88,12 @@ installed prettier@3.6.2 with binaries:
 
 86 packages installed [820.00ms]
 cosmo@Cosmos-MacBook-Pro recipe-app %
+
+## idb-keyval
+cosmo@Cosmos-MacBook-Pro recipe-app % bun add idb-keyval
+bun add v1.2.18 (0d4089ea)
+
+installed idb-keyval@6.2.2
+
+1 package installed [341.00ms]
+cosmo@Cosmos-MacBook-Pro recipe-app %
