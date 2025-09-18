@@ -1,7 +1,9 @@
 paths:
 	find . -type f \
 		-not -path "./scrap/*" \
+		-not -path "./.next/*" \
 		-not -path "./.git/*" \
+		-not -path "./seed-data/*" \
 		-not -path "./node_modules/*" \
 		| sed 's|^\./||' > scrap/txt/paths.txt
 
@@ -11,6 +13,8 @@ content:
 		if [ -d "$$target" ]; then \
 			find "$$target" -type f \
 				! -path "*/node_modules/*" \
+				! -path "*/.next/*" \
+				! -path "*/seed-data/*" \
 				! -path "app/favicon.ico" \
 				! -path "*/scrap/*" | while read -r file; do \
 				echo "=== $$file ===" >> scrap/txt/contents.txt; \

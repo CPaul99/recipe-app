@@ -5,6 +5,7 @@ import { MessageSquareMore, ThumbsDown, ThumbsUp } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { DEFAULT_RECIPE_IMAGE } from "@/lib/constants/images";
 import {
   useRecipesStore,
   selectReactionCounts,
@@ -36,7 +37,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
 
   const hasMoreSteps = recipe.steps.length > steps.length;
 
-  const imageUrl = recipe.imageUrl || "/recipe-app-logo.webp";
+  const imageUrl = recipe.imageUrl || DEFAULT_RECIPE_IMAGE;
 
   return (
     <article className="flex h-full flex-col gap-4 rounded-lg border bg-card p-4 shadow-sm transition-shadow hover:shadow-md">

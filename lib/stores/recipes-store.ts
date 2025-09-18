@@ -40,6 +40,18 @@ type RecipesActions = {
 
 export type RecipesStoreState = RecipesState & RecipesActions;
 
+type ReactionCountsSnapshot = Readonly<{
+  likes: number;
+  dislikes: number;
+}>;
+
+const fallbackReactionCounts: ReactionCountsSnapshot = Object.freeze({
+  likes: 0,
+  dislikes: 0,
+});
+
+const reactionCountsCache = new Map<RecipeId, ReactionCountsSnapshot>();
+
 const buildRecipeFromInput = (input: RecipeCreateInput): Recipe => {
   const now = new Date().toISOString();
 
@@ -90,6 +102,7 @@ export const useRecipesStore = create<RecipesStoreState>((set, get) => ({
       recipesById: mapped.recipesById,
       recipeOrder: mapped.recipeOrder,
     });
+    reactionCountsCache.clear();
   },
 
   addRecipe: (input) => {
@@ -176,6 +189,8 @@ export const useRecipesStore = create<RecipesStoreState>((set, get) => ({
 
       const nextRecipes = { ...state.recipesById };
       delete nextRecipes[id];
+
+      reactionCountsCache.delete(id);
 
       return {
         recipesById: nextRecipes,
@@ -394,7 +409,24 @@ export const selectFilteredRecipes = (state: RecipesStoreState) => {
 export const selectReactionCounts =
   (recipeId: RecipeId) => (state: RecipesStoreState) => {
     const recipe = state.recipesById[recipeId];
-    return recipe
-      ? { likes: recipe.likes, dislikes: recipe.dislikes }
-      : { likes: 0, dislikes: 0 };
+    if (!recipe) {
+      return fallbackReactionCounts;
+    }
+
+    const cached = reactionCountsCache.get(recipeId);
+    if (
+      cached &&
+      cached.likes === recipe.likes &&
+      cached.dislikes === recipe.dislikes
+    ) {
+      return cached;
+    }
+
+    const snapshot: ReactionCountsSnapshot = {
+      likes: recipe.likes,
+      dislikes: recipe.dislikes,
+    };
+
+    reactionCountsCache.set(recipeId, snapshot);
+    return snapshot;
   };

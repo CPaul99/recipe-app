@@ -30,18 +30,17 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
 
 **· Create Recipe Page & Form Validation**
 
-- Route: `app/(public)/create/page.tsx`.
-- Form module folder `app/(public)/create/_components/`:
-  - `recipe-form.tsx` using `react-hook-form` + Zod schema from `lib/validation/recipe-schema.ts` with `@hookform/resolvers/zod`.
-  - `live-preview.tsx` reusing `recipe-card` component with controlled values.
-- Handle image upload with local preview (store base64 / blob URL) and optional fallback image.
-- Invoke store actions to persist new recipes and sync to IndexedDB.
+- [DONE] Route: `app/(public)/create/page.tsx`.
+- [DONE] Form module folder `app/(public)/create/_components/`:
+  - [DONE] `recipe-form.tsx` using `react-hook-form` + Zod schema from `lib/validation/recipe-schema.ts` with `@hookform/resolvers/zod`.
+  - [DONE] `live-preview.tsx` reusing `recipe-card` component with controlled values.
+- [DONE] Handle image upload with local preview (store base64 / blob URL) and optional fallback image.
+- [DONE] Invoke store actions to persist new recipes and sync to IndexedDB.
 
 **· Auth Page Shell (Optional Stretch to Datastore)**
 
 - Route: `app/(auth)/login/page.tsx` with two-column layout using shadcn/ui `Tabs` or `Card` components.
 - Basic `react-hook-form` handlers for login/signup (no backend; stub validation). Focus on UI parity with brief.
-- If time runs short, document this as a stretch item in README and leave route scaffolded.
 
 **· Polish, QA, Documentation**
 
