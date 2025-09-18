@@ -289,8 +289,38 @@ export const selectRecipeEntities = (state: RecipesStoreState) =>
 export const selectRecipeOrder = (state: RecipesStoreState) =>
   state.recipeOrder;
 
+type OrderedRecipesCache = {
+  recipeOrderRef: RecipesStoreState["recipeOrder"];
+  recipesByIdRef: RecipesStoreState["recipesById"];
+  result: Recipe[];
+};
+
+let orderedRecipesCache: OrderedRecipesCache | null = null;
+
+const getOrderedRecipes = (state: RecipesStoreState) => {
+  if (
+    orderedRecipesCache &&
+    orderedRecipesCache.recipeOrderRef === state.recipeOrder &&
+    orderedRecipesCache.recipesByIdRef === state.recipesById
+  ) {
+    return orderedRecipesCache.result;
+  }
+
+  const ordered = state.recipeOrder
+    .map((id) => state.recipesById[id])
+    .filter((recipe): recipe is Recipe => Boolean(recipe));
+
+  orderedRecipesCache = {
+    recipeOrderRef: state.recipeOrder,
+    recipesByIdRef: state.recipesById,
+    result: ordered,
+  };
+
+  return ordered;
+};
+
 export const selectAllRecipes = (state: RecipesStoreState) =>
-  state.recipeOrder.map((id) => state.recipesById[id]).filter(Boolean);
+  getOrderedRecipes(state);
 
 export const selectRecipeById =
   (recipeId: RecipeId) => (state: RecipesStoreState) =>
@@ -306,23 +336,59 @@ export const selectSelectedTags = (state: RecipesStoreState) =>
 
 export const selectIsHydrated = (state: RecipesStoreState) => state.isHydrated;
 
+type FilteredRecipesCache = {
+  recipeOrderRef: RecipesStoreState["recipeOrder"];
+  recipesByIdRef: RecipesStoreState["recipesById"];
+  searchQuery: string;
+  tagsKey: string;
+  result: Recipe[];
+};
+
+let filteredRecipesCache: FilteredRecipesCache | null = null;
+
 export const selectFilteredRecipes = (state: RecipesStoreState) => {
-  const recipes = selectAllRecipes(state);
-  const query = state.filters.searchQuery.trim().toLowerCase();
+  const searchQuery = state.filters.searchQuery;
+  const tagsKey = state.filters.tags.join("|");
+
+  if (
+    filteredRecipesCache &&
+    filteredRecipesCache.recipeOrderRef === state.recipeOrder &&
+    filteredRecipesCache.recipesByIdRef === state.recipesById &&
+    filteredRecipesCache.searchQuery === searchQuery &&
+    filteredRecipesCache.tagsKey === tagsKey
+  ) {
+    return filteredRecipesCache.result;
+  }
+
+  const recipes = getOrderedRecipes(state);
+  const query = searchQuery.trim().toLowerCase();
   const activeTags = state.filters.tags;
 
-  return recipes.filter((recipe) => {
-    const matchesQuery =
-      query.length === 0 ||
-      recipe.title.toLowerCase().includes(query) ||
-      (recipe.description?.toLowerCase().includes(query) ?? false);
+  const filtered =
+    query.length === 0 && activeTags.length === 0
+      ? recipes
+      : recipes.filter((recipe) => {
+          const matchesQuery =
+            query.length === 0 ||
+            recipe.title.toLowerCase().includes(query) ||
+            (recipe.description?.toLowerCase().includes(query) ?? false);
 
-    const matchesTags =
-      activeTags.length === 0 ||
-      recipe.tags.some((tag) => activeTags.includes(tag));
+          const matchesTags =
+            activeTags.length === 0 ||
+            recipe.tags.some((tag) => activeTags.includes(tag));
 
-    return matchesQuery && matchesTags;
-  });
+          return matchesQuery && matchesTags;
+        });
+
+  filteredRecipesCache = {
+    recipeOrderRef: state.recipeOrder,
+    recipesByIdRef: state.recipesById,
+    searchQuery,
+    tagsKey,
+    result: filtered,
+  };
+
+  return filteredRecipesCache.result;
 };
 
 export const selectReactionCounts =

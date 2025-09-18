@@ -3,7 +3,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border/60 bg-muted/40 py-8 text-sm text-muted-foreground">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-4 text-center sm:px-6">
+      <div className="page-container flex flex-col items-center gap-4 text-center">
         <span className="text-base font-semibold tracking-tight text-foreground">
           Recipe Manager
         </span>

@@ -20,15 +20,15 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
 
 **· Browse Recipes Page MVP**
 
-- Route: `app/(public)/browse/page.tsx` (make `/` redirect to `/browse`).
-- Local components inside `app/(public)/browse/_components/`:
-  - `recipe-filters.tsx` (search + tag toggles using shadcn/ui `Input`, `Badge`).
-  - `recipe-list.tsx` rendering cards from store.
-  - `recipe-card.tsx` showing image, ingredients, steps (max 7), like/dislike buttons, comments placeholder.
-- Shared UI primitives placed in `components/ui/` initialized via `shadcn/ui` generator (Button, Input, Badge, Card, Sheet for mobile menu, Tabs for auth, etc.).
-- Tailwind utility adjustments in `app/globals.css` for layout spacing.
+- [DONE] Route: `app/(public)/browse/page.tsx` (make `/` redirect to `/browse`).
+- [DONE] Local components inside `app/(public)/browse/_components/`:
+  - [DONE] `recipe-filters.tsx` (search + tag toggles using shadcn/ui `Input`, `Badge`).
+  - [DONE] `recipe-list.tsx` rendering cards from store.
+  - [DONE] `recipe-card.tsx` showing image, ingredients, steps (max 7), like/dislike buttons, comments placeholder.
+- [DONE] Shared UI primitives placed in `components/ui/` initialized via `shadcn/ui` generator (Button, Input, Badge, Card, Sheet for mobile menu, Tabs for auth, etc.).
+- [DONE] Tailwind utility adjustments in `app/globals.css` for layout spacing.
 
-**2:15 – 3:00 · Create Recipe Page & Form Validation**
+**· Create Recipe Page & Form Validation**
 
 - Route: `app/(public)/create/page.tsx`.
 - Form module folder `app/(public)/create/_components/`:
@@ -37,13 +37,13 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
 - Handle image upload with local preview (store base64 / blob URL) and optional fallback image.
 - Invoke store actions to persist new recipes and sync to IndexedDB.
 
-**3:00 – 3:30 · Auth Page Shell (Optional Stretch to Datastore)**
+**· Auth Page Shell (Optional Stretch to Datastore)**
 
 - Route: `app/(auth)/login/page.tsx` with two-column layout using shadcn/ui `Tabs` or `Card` components.
 - Basic `react-hook-form` handlers for login/signup (no backend; stub validation). Focus on UI parity with brief.
 - If time runs short, document this as a stretch item in README and leave route scaffolded.
 
-**3:30 – 4:00 · Polish, QA, Documentation**
+**· Polish, QA, Documentation**
 
 - Responsive tweaks (header collapse breakpoints, card grid) using Tailwind in relevant components.
 - Implement likes/dislikes persistence, ensure search + tags state persists via URL params or local store.

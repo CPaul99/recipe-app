@@ -11,10 +11,8 @@ export function ShellLayout({ children }: ShellLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
-      <main className="flex-1">
-        <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
-          {children}
-        </div>
+      <main className="flex-1 section-spacing-y">
+        <div className="page-container">{children}</div>
       </main>
       <Footer />
     </div>
