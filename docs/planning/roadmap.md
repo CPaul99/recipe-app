@@ -39,8 +39,8 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
 
 **· Auth Page Shell (Optional Stretch to Datastore)**
 
-- Route: `app/(auth)/login/page.tsx` with two-column layout using shadcn/ui `Tabs` or `Card` components.
-- Basic `react-hook-form` handlers for login/signup (no backend; stub validation). Focus on UI parity with brief.
+- [DONE] Route: `app/(auth)/login/page.tsx` with two-column layout using shadcn/ui `Tabs` or `Card` components.
+- [DONE] Basic `react-hook-form` handlers for login/signup (no backend; stub validation). Focus on UI parity with brief.
 
 **· Polish, QA, Documentation**
 
