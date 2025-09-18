@@ -181,7 +181,7 @@ RootLayout (app/layout.tsx)
 
 ### Route Organization
 
-- **Route Groups**: `(auth)` and `(public)` for logical organization
+- **Route Groups**: `auth` and `public` for logical organization
 - **Co-located Components**: Page-specific components in `_components/` folders
 - **Shared Components**: Reusable UI components in `components/ui/`
 - **Feature Components**: Domain-specific logic in `features/`
@@ -215,5 +215,3 @@ RootLayout (app/layout.tsx)
 - **Graceful Degradation**: App works without persistence
 - **User Feedback**: Clear error states and loading indicators
 - **Development Tools**: Console warnings for debugging
-
-This architecture provides a scalable foundation for recipe management with excellent user experience and developer ergonomics.
