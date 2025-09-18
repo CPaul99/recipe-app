@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu } from "lucide-react";
+import { Menu, LogIn } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -26,16 +26,16 @@ export function MobileDrawer() {
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-72 sm:max-w-sm">
+      <SheetContent side="right" className="w-72 sm:max-w-sm bg-green-50 border-l-2 border-green-200">
         <SheetHeader className="p-0 pb-6">
-          <SheetTitle className="text-lg">Menu</SheetTitle>
+          <SheetTitle className="sr-only">Navigation menu</SheetTitle>
         </SheetHeader>
-        <nav className="flex flex-col gap-4 text-base font-medium">
+        <nav className="flex flex-col gap-2 text-base font-medium mt-6">
           <SheetClose asChild>
             <Link
               href="/public/browse"
               prefetch={false}
-              className="transition-colors hover:text-foreground"
+              className="px-4 py-3 rounded-lg transition-all duration-200 hover:bg-green-100 hover:text-green-800 text-slate-700 border border-transparent hover:border-green-200"
             >
               Browse recipes
             </Link>
@@ -44,7 +44,7 @@ export function MobileDrawer() {
             <Link
               href="/public/create"
               prefetch={false}
-              className="transition-colors hover:text-foreground"
+              className="px-4 py-3 rounded-lg transition-all duration-200 hover:bg-green-100 hover:text-green-800 text-slate-700 border border-transparent hover:border-green-200"
             >
               Create recipes
             </Link>
@@ -53,9 +53,11 @@ export function MobileDrawer() {
             <Link
               href="/auth/login"
               prefetch={false}
-              className="transition-colors hover:text-foreground"
+              className="px-4 py-3 rounded-lg transition-all duration-200 hover:bg-green-100 hover:text-green-800 text-slate-700 border border-transparent hover:border-green-200 border-t-green-200/50 flex items-center gap-2"
+              aria-label="Login or signup"
             >
-              Login / Signup
+              <LogIn className="h-5 w-5" />
+              <span className="sr-only">Login / Signup</span>
             </Link>
           </SheetClose>
         </nav>

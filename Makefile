@@ -28,3 +28,9 @@ content:
 
 stagedp:
 	git diff --name-only --cached > scrap/txt/staged_paths.txt
+
+backend-seed:
+	@echo "🌱 Starting recipe seeding process..."
+	@node scripts/generate-seed-data.js
+	@echo "✅ Seeding complete! The recipes.json file has been created."
+	@echo "💡 To load the data in your app, use the useSeedData hook or visit the /api/seed endpoint."

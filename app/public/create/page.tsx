@@ -87,23 +87,6 @@ export default function CreateRecipePage() {
         </div>
       ) : null}
 
-      {saveMessage ? (
-        <div
-          className="flex items-center justify-between gap-3 rounded-md border border-primary/30 bg-primary/5 px-4 py-3 text-sm"
-          role="status"
-          aria-live="polite"
-        >
-          <span>{saveMessage}</span>
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            onClick={() => setLastSavedRecipe(null)}
-          >
-            Dismiss
-          </Button>
-        </div>
-      ) : null}
 
       {errorMessage ? (
         <div
@@ -119,6 +102,8 @@ export default function CreateRecipePage() {
           onSubmit={handleSubmit}
           onPreviewChange={handlePreviewChange}
           isStoreReady={isHydrated}
+          saveMessage={saveMessage}
+          onDismissSaveMessage={() => setLastSavedRecipe(null)}
         />
         <LivePreview values={previewValues} />
       </div>

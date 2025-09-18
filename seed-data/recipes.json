@@ -1,0 +1,989 @@
+[
+  {
+    "id": "d7e015c4-50d2-4a6e-8d52-d70a7c297fa3",
+    "title": "Classic Spaghetti Carbonara",
+    "description": "A traditional Italian pasta dish with eggs, cheese, and pancetta",
+    "author": "Chef Marco",
+    "imageUrl": "/seed-data/images/dish1.jpg",
+    "tags": [
+      "dinner",
+      "quick"
+    ],
+    "ingredients": [
+      {
+        "id": "405ef7b1-cf79-47bf-88a3-a54933e6dd33",
+        "name": "Spaghetti",
+        "quantity": "400g"
+      },
+      {
+        "id": "c4fca8ec-8f29-4489-bc9f-ea63681e5377",
+        "name": "Pancetta",
+        "quantity": "200g",
+        "preparation": "diced"
+      },
+      {
+        "id": "8f9b129a-9c17-42fd-bfc8-0cf9e173c935",
+        "name": "Eggs",
+        "quantity": "4 large"
+      },
+      {
+        "id": "d2af8d6e-c3f6-4ee8-a3b7-fb07aa5692d7",
+        "name": "Parmesan cheese",
+        "quantity": "100g",
+        "preparation": "grated"
+      },
+      {
+        "id": "9ee8a49d-45b4-45a5-84dc-fa76bf13516b",
+        "name": "Black pepper",
+        "quantity": "to taste"
+      }
+    ],
+    "steps": [
+      {
+        "id": "53d0dd4f-0d89-490d-a48b-4ef33dab549c",
+        "order": 1,
+        "instruction": "Cook spaghetti in salted boiling water until al dente",
+        "timerMinutes": 10
+      },
+      {
+        "id": "a9f1c7e8-936b-4c96-90be-be24afc7213e",
+        "order": 2,
+        "instruction": "Fry pancetta until crispy"
+      },
+      {
+        "id": "0ab1c43b-62fd-486e-9f65-0f9d88570fff",
+        "order": 3,
+        "instruction": "Beat eggs with cheese and pepper"
+      },
+      {
+        "id": "1285c06e-6b9f-497b-8b4f-2485b06b9990",
+        "order": 4,
+        "instruction": "Combine hot pasta with pancetta, then quickly mix in egg mixture"
+      }
+    ],
+    "servings": 4,
+    "prepTimeMinutes": 10,
+    "cookTimeMinutes": 15,
+    "totalTimeMinutes": 25,
+    "likes": 47,
+    "dislikes": 0,
+    "createdAt": "2025-09-18T13:47:54.467Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "47760bbf-3ac4-4b16-98bd-279890caddf3",
+    "title": "Fresh Garden Salad",
+    "description": "A vibrant mix of seasonal vegetables with homemade vinaigrette",
+    "author": "Sarah Green",
+    "imageUrl": "/seed-data/images/dish2.jpg",
+    "tags": [
+      "lunch",
+      "healthy",
+      "vegetarian",
+      "quick"
+    ],
+    "ingredients": [
+      {
+        "id": "460a4ae5-a5eb-4dea-bb3d-d63114d6af98",
+        "name": "Mixed greens",
+        "quantity": "200g"
+      },
+      {
+        "id": "0f7f6e01-6e2d-4da1-b683-3315110bc6e9",
+        "name": "Cherry tomatoes",
+        "quantity": "150g",
+        "preparation": "halved"
+      },
+      {
+        "id": "b640120f-2de1-4a45-9a4d-4c36750a73cd",
+        "name": "Cucumber",
+        "quantity": "1 medium",
+        "preparation": "sliced"
+      },
+      {
+        "id": "8731561c-6a27-4ddc-a60e-42e4604adc8e",
+        "name": "Red onion",
+        "quantity": "1/4",
+        "preparation": "thinly sliced"
+      },
+      {
+        "id": "d24ecd3e-b17d-49ab-8f48-0bbd38653e7a",
+        "name": "Olive oil",
+        "quantity": "3 tbsp"
+      },
+      {
+        "id": "47d1f698-6789-44cc-8496-293bb89ba9d2",
+        "name": "Balsamic vinegar",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "db6a2b74-185d-47cc-9007-63373cad06ca",
+        "order": 1,
+        "instruction": "Wash and dry all vegetables thoroughly"
+      },
+      {
+        "id": "9c96ee32-aed6-4d49-a959-c3de1158845e",
+        "order": 2,
+        "instruction": "Combine greens, tomatoes, cucumber, and onion in a large bowl"
+      },
+      {
+        "id": "3767b69e-a291-4e8b-aa75-224a03682da9",
+        "order": 3,
+        "instruction": "Whisk olive oil and balsamic vinegar together"
+      },
+      {
+        "id": "1871cc25-aa48-4b83-935f-c940b5987e80",
+        "order": 4,
+        "instruction": "Drizzle dressing over salad and toss gently"
+      }
+    ],
+    "servings": 2,
+    "prepTimeMinutes": 15,
+    "totalTimeMinutes": 15,
+    "likes": 50,
+    "dislikes": 1,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "cfed86b6-8c97-4aca-ad93-a2da0921e945",
+    "title": "Chocolate Chip Cookies",
+    "description": "Soft and chewy homemade cookies with plenty of chocolate chips",
+    "author": "Baker Betty",
+    "imageUrl": "/seed-data/images/dish3.jpg",
+    "tags": [
+      "dessert",
+      "snack"
+    ],
+    "ingredients": [
+      {
+        "id": "4b36a5dd-98ca-4071-983f-ec7a60a7b039",
+        "name": "All-purpose flour",
+        "quantity": "2 1/4 cups"
+      },
+      {
+        "id": "05e3c4a0-9622-4a66-b9fb-066e6ed775dd",
+        "name": "Butter",
+        "quantity": "1 cup",
+        "preparation": "softened"
+      },
+      {
+        "id": "b6790e3d-e9e9-4097-8a5b-f812dd8ec5a8",
+        "name": "Brown sugar",
+        "quantity": "3/4 cup"
+      },
+      {
+        "id": "e4b90c06-ca56-40f4-a5ba-c887767cfb91",
+        "name": "White sugar",
+        "quantity": "3/4 cup"
+      },
+      {
+        "id": "598a4567-4877-4c13-b2e2-64b2105cec69",
+        "name": "Eggs",
+        "quantity": "2 large"
+      },
+      {
+        "id": "0bc3e1db-be19-4730-a530-2196e169e3d2",
+        "name": "Vanilla extract",
+        "quantity": "2 tsp"
+      },
+      {
+        "id": "f2b94234-6092-4134-8b8b-f4f354e97939",
+        "name": "Chocolate chips",
+        "quantity": "2 cups"
+      }
+    ],
+    "steps": [
+      {
+        "id": "b5d4ef17-0145-4c7c-84d6-db0b725ccee1",
+        "order": 1,
+        "instruction": "Preheat oven to 375°F (190°C)"
+      },
+      {
+        "id": "81e901cc-781f-4ade-991d-4c2316824024",
+        "order": 2,
+        "instruction": "Cream butter and sugars until fluffy",
+        "timerMinutes": 3
+      },
+      {
+        "id": "76d4afa1-5fad-4357-aab5-cf5bbbf751df",
+        "order": 3,
+        "instruction": "Beat in eggs and vanilla"
+      },
+      {
+        "id": "906bc6a4-712d-4032-87ec-680c469fccfe",
+        "order": 4,
+        "instruction": "Gradually mix in flour"
+      },
+      {
+        "id": "87cebffe-f149-4b53-bd56-3d39b2b13f6a",
+        "order": 5,
+        "instruction": "Fold in chocolate chips"
+      },
+      {
+        "id": "d4e76aea-ac75-492e-a52e-9785b550750c",
+        "order": 6,
+        "instruction": "Drop spoonfuls onto baking sheet and bake",
+        "timerMinutes": 12
+      }
+    ],
+    "servings": 24,
+    "prepTimeMinutes": 20,
+    "cookTimeMinutes": 12,
+    "totalTimeMinutes": 32,
+    "likes": 13,
+    "dislikes": 4,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "278de03d-7455-4ba7-a78c-4a4bd3943e8f",
+    "title": "Grilled Salmon with Herbs",
+    "description": "Perfectly seasoned salmon fillet with fresh herbs and lemon",
+    "author": "Chef Alex",
+    "imageUrl": "/seed-data/images/dish4.jpg",
+    "tags": [
+      "dinner",
+      "healthy",
+      "quick"
+    ],
+    "ingredients": [
+      {
+        "id": "2fe182d4-d820-498e-963a-9dba8f6acd62",
+        "name": "Salmon fillets",
+        "quantity": "4 pieces",
+        "preparation": "skin-on"
+      },
+      {
+        "id": "81383d72-9d13-43bd-884f-aa59c90494ba",
+        "name": "Fresh dill",
+        "quantity": "2 tbsp",
+        "preparation": "chopped"
+      },
+      {
+        "id": "c8f27f4c-a888-465d-8021-4ecd17b8fa9d",
+        "name": "Fresh parsley",
+        "quantity": "2 tbsp",
+        "preparation": "chopped"
+      },
+      {
+        "id": "7e0f3508-d5dd-451c-9b56-655fb30b019c",
+        "name": "Lemon",
+        "quantity": "1 large",
+        "preparation": "sliced"
+      },
+      {
+        "id": "9bb7cd4f-54f9-43c1-ac66-1b0963746e66",
+        "name": "Olive oil",
+        "quantity": "2 tbsp"
+      },
+      {
+        "id": "0b5e0453-857e-411e-b293-a3d386d4013f",
+        "name": "Salt and pepper",
+        "quantity": "to taste"
+      }
+    ],
+    "steps": [
+      {
+        "id": "662534d4-ea17-47e1-b6d4-53d107527d18",
+        "order": 1,
+        "instruction": "Preheat grill to medium-high heat"
+      },
+      {
+        "id": "368ba7e6-d7ff-46dd-9392-e36b11e06375",
+        "order": 2,
+        "instruction": "Pat salmon dry and brush with olive oil"
+      },
+      {
+        "id": "8c273d9b-c50e-43de-9e37-20dc1feadcb9",
+        "order": 3,
+        "instruction": "Season with salt, pepper, and herbs"
+      },
+      {
+        "id": "5c1667b9-e743-470c-ba23-6053f53638e6",
+        "order": 4,
+        "instruction": "Grill for 4-6 minutes per side",
+        "timerMinutes": 10
+      },
+      {
+        "id": "a352aa44-9a02-44ea-bfc1-e4c981b28d99",
+        "order": 5,
+        "instruction": "Serve with lemon slices"
+      }
+    ],
+    "servings": 4,
+    "prepTimeMinutes": 10,
+    "cookTimeMinutes": 12,
+    "totalTimeMinutes": 22,
+    "likes": 57,
+    "dislikes": 0,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "41219d90-ddb9-4842-b62e-0dc83a4336da",
+    "title": "Avocado Toast",
+    "description": "Simple and nutritious breakfast with creamy avocado on sourdough",
+    "author": "Morning Maven",
+    "imageUrl": "/seed-data/images/dish5.jpg",
+    "tags": [
+      "breakfast",
+      "healthy",
+      "vegetarian",
+      "quick"
+    ],
+    "ingredients": [
+      {
+        "id": "5c81f5ab-c247-4745-ac20-9bbf5f6f713a",
+        "name": "Sourdough bread",
+        "quantity": "2 slices"
+      },
+      {
+        "id": "8fcdc964-d63d-46cc-be26-e82073def009",
+        "name": "Avocado",
+        "quantity": "1 large",
+        "preparation": "ripe"
+      },
+      {
+        "id": "e9e712c9-93e3-47d8-a32b-5c7aa5522feb",
+        "name": "Lime juice",
+        "quantity": "1 tsp"
+      },
+      {
+        "id": "22c8b109-dea7-4d4e-bae7-b7139e1252fb",
+        "name": "Red pepper flakes",
+        "quantity": "pinch",
+        "optional": true
+      },
+      {
+        "id": "a475cc60-f64f-4783-9537-3d6bb6404dc3",
+        "name": "Sea salt",
+        "quantity": "to taste"
+      },
+      {
+        "id": "0cdd339b-5d3a-4b83-942e-5df918caca29",
+        "name": "Everything bagel seasoning",
+        "quantity": "1 tsp",
+        "optional": true
+      }
+    ],
+    "steps": [
+      {
+        "id": "56a687c9-a161-428e-9643-3804ccd001b9",
+        "order": 1,
+        "instruction": "Toast bread until golden brown",
+        "timerMinutes": 3
+      },
+      {
+        "id": "c9fc4685-0b51-4724-96cf-63542f2f9ed5",
+        "order": 2,
+        "instruction": "Mash avocado with lime juice and salt"
+      },
+      {
+        "id": "bfacf85b-d741-44b9-a36b-0f5a4bad6b17",
+        "order": 3,
+        "instruction": "Spread avocado mixture on toast"
+      },
+      {
+        "id": "64a9bfe5-cf11-43aa-a43e-eaa8661583c1",
+        "order": 4,
+        "instruction": "Sprinkle with red pepper flakes and seasoning"
+      }
+    ],
+    "servings": 1,
+    "prepTimeMinutes": 5,
+    "totalTimeMinutes": 8,
+    "likes": 38,
+    "dislikes": 3,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "37689802-ae88-4a2a-89c2-baf54f52112f",
+    "title": "Beef Tacos",
+    "description": "Flavorful ground beef tacos with fresh toppings",
+    "author": "Taco Tuesday",
+    "imageUrl": "/seed-data/images/dish6.jpg",
+    "tags": [
+      "dinner",
+      "quick"
+    ],
+    "ingredients": [
+      {
+        "id": "d83fc4f5-c776-450d-8262-4c1d1ce5d362",
+        "name": "Ground beef",
+        "quantity": "1 lb"
+      },
+      {
+        "id": "d23123da-57f8-449f-b42f-4f2cf730b7bc",
+        "name": "Taco shells",
+        "quantity": "8"
+      },
+      {
+        "id": "5a402732-3b41-4825-84cc-d610fc7b48ff",
+        "name": "Onion",
+        "quantity": "1 medium",
+        "preparation": "diced"
+      },
+      {
+        "id": "bce2d3e1-4a66-445c-a2d2-d737136f87f9",
+        "name": "Lettuce",
+        "quantity": "2 cups",
+        "preparation": "shredded"
+      },
+      {
+        "id": "ebf02c69-4cd7-4afd-bc2a-0649251ba6db",
+        "name": "Tomatoes",
+        "quantity": "2 medium",
+        "preparation": "diced"
+      },
+      {
+        "id": "33571d82-b4a5-45d2-990b-64a238590cbf",
+        "name": "Cheddar cheese",
+        "quantity": "1 cup",
+        "preparation": "shredded"
+      },
+      {
+        "id": "2c97c7e3-9b0a-4daf-91bf-2633ce83ede2",
+        "name": "Taco seasoning",
+        "quantity": "1 packet"
+      }
+    ],
+    "steps": [
+      {
+        "id": "a85ad9be-ff29-42c4-8e07-ca8c5fc152aa",
+        "order": 1,
+        "instruction": "Brown ground beef in a large skillet",
+        "timerMinutes": 8
+      },
+      {
+        "id": "18b4e7b9-01b5-4821-acf0-a98eb8c7efc6",
+        "order": 2,
+        "instruction": "Add taco seasoning and water, simmer",
+        "timerMinutes": 5
+      },
+      {
+        "id": "473542fe-a995-4073-ab27-0ef8e88720f3",
+        "order": 3,
+        "instruction": "Warm taco shells according to package directions"
+      },
+      {
+        "id": "86431902-f6ee-4be0-a409-2d2678f8b937",
+        "order": 4,
+        "instruction": "Fill shells with beef and desired toppings"
+      }
+    ],
+    "servings": 4,
+    "prepTimeMinutes": 15,
+    "cookTimeMinutes": 15,
+    "totalTimeMinutes": 30,
+    "likes": 55,
+    "dislikes": 4,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "bfd9f29a-38cd-4418-8653-07dd7d27ea37",
+    "title": "Green Smoothie Bowl",
+    "description": "Nutrient-packed smoothie bowl with fresh fruits and superfoods",
+    "author": "Wellness Warrior",
+    "imageUrl": "/seed-data/images/dish7.jpg",
+    "tags": [
+      "breakfast",
+      "healthy",
+      "vegan",
+      "quick"
+    ],
+    "ingredients": [
+      {
+        "id": "12075d27-8575-44f5-8c54-fbbd29d6ca89",
+        "name": "Frozen banana",
+        "quantity": "2 medium"
+      },
+      {
+        "id": "cfae4878-8382-4284-9253-95ec86a9b8dc",
+        "name": "Spinach",
+        "quantity": "2 cups",
+        "preparation": "fresh"
+      },
+      {
+        "id": "76333a98-0e3f-4e3f-8c15-39c7fb9cbed9",
+        "name": "Mango",
+        "quantity": "1/2 cup",
+        "preparation": "frozen chunks"
+      },
+      {
+        "id": "503f7ea2-5f9b-4033-9e6c-10d2dad4aa2b",
+        "name": "Coconut milk",
+        "quantity": "1/4 cup"
+      },
+      {
+        "id": "f244b62c-ce56-4b33-aacb-34185ed17d24",
+        "name": "Fresh berries",
+        "quantity": "1/4 cup",
+        "preparation": "for topping"
+      },
+      {
+        "id": "36094ca1-b118-47a8-b7b4-caec5725b12b",
+        "name": "Chia seeds",
+        "quantity": "1 tbsp",
+        "preparation": "for topping"
+      },
+      {
+        "id": "2c65d885-9205-404b-81e1-404479ef16f1",
+        "name": "Granola",
+        "quantity": "2 tbsp",
+        "preparation": "for topping"
+      }
+    ],
+    "steps": [
+      {
+        "id": "5871af1f-a94b-492a-9dc8-0bf99d2f26c4",
+        "order": 1,
+        "instruction": "Blend banana, spinach, mango, and coconut milk until smooth"
+      },
+      {
+        "id": "b827fe32-ea80-4ee0-b21e-c618a4e8acd9",
+        "order": 2,
+        "instruction": "Pour into a bowl"
+      },
+      {
+        "id": "a4de9bef-3520-46b3-9d23-346966ae196f",
+        "order": 3,
+        "instruction": "Top with berries, chia seeds, and granola"
+      },
+      {
+        "id": "37bfbe6a-30c8-4eed-8961-8fde20a5f194",
+        "order": 4,
+        "instruction": "Serve immediately"
+      }
+    ],
+    "servings": 1,
+    "prepTimeMinutes": 8,
+    "totalTimeMinutes": 8,
+    "likes": 22,
+    "dislikes": 4,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "f7ee0b34-b4a7-42f1-baec-2141098e945a",
+    "title": "Chicken Stir Fry",
+    "description": "Quick and colorful stir fry with tender chicken and crisp vegetables",
+    "author": "Wok Master",
+    "imageUrl": "/seed-data/images/dish8.jpg",
+    "tags": [
+      "dinner",
+      "quick",
+      "healthy"
+    ],
+    "ingredients": [
+      {
+        "id": "c7c9b939-f476-4943-aad5-4c24d0bd19c6",
+        "name": "Chicken breast",
+        "quantity": "2 large",
+        "preparation": "sliced thin"
+      },
+      {
+        "id": "265aa70b-b459-4ff2-8514-e7aa744c757a",
+        "name": "Bell peppers",
+        "quantity": "2",
+        "preparation": "sliced"
+      },
+      {
+        "id": "164a62c5-e3f2-48dc-baf6-2e6e4e34dbf2",
+        "name": "Broccoli",
+        "quantity": "2 cups",
+        "preparation": "florets"
+      },
+      {
+        "id": "786c1599-561c-4ef6-bebd-28842ceda284",
+        "name": "Soy sauce",
+        "quantity": "3 tbsp"
+      },
+      {
+        "id": "8783e52e-2295-4720-9819-ff9e833978fc",
+        "name": "Garlic",
+        "quantity": "3 cloves",
+        "preparation": "minced"
+      },
+      {
+        "id": "3daaa020-a961-48fb-ac89-aba7a369839f",
+        "name": "Ginger",
+        "quantity": "1 tbsp",
+        "preparation": "grated"
+      },
+      {
+        "id": "894ccc9c-67ff-44e9-beb3-3d40abe51754",
+        "name": "Vegetable oil",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "499897dd-b545-4b2e-9794-6695efa4a74b",
+        "order": 1,
+        "instruction": "Heat oil in a wok or large skillet over high heat"
+      },
+      {
+        "id": "c6858459-7307-49b3-911f-4c5920cf28c4",
+        "order": 2,
+        "instruction": "Cook chicken until golden and cooked through",
+        "timerMinutes": 6
+      },
+      {
+        "id": "a7af2cba-8a45-402e-9af7-15c160774ab2",
+        "order": 3,
+        "instruction": "Add vegetables and stir-fry until crisp-tender",
+        "timerMinutes": 4
+      },
+      {
+        "id": "f4a34c9f-020a-42f7-86af-0c350a3e47cf",
+        "order": 4,
+        "instruction": "Add garlic, ginger, and soy sauce, stir for 1 minute"
+      },
+      {
+        "id": "dc1817c6-db6a-4072-ad19-451ef871f0ed",
+        "order": 5,
+        "instruction": "Serve immediately over rice"
+      }
+    ],
+    "servings": 4,
+    "prepTimeMinutes": 15,
+    "cookTimeMinutes": 12,
+    "totalTimeMinutes": 27,
+    "likes": 17,
+    "dislikes": 0,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "1970c918-e581-4fd2-a0d2-92c5e6196cb8",
+    "title": "Pancakes",
+    "description": "Fluffy buttermilk pancakes perfect for weekend mornings",
+    "author": "Pancake Pro",
+    "imageUrl": "/seed-data/images/dish9.jpg",
+    "tags": [
+      "breakfast",
+      "vegetarian"
+    ],
+    "ingredients": [
+      {
+        "id": "2934af3c-b1bd-4072-a8f8-a7bf4876f99e",
+        "name": "All-purpose flour",
+        "quantity": "2 cups"
+      },
+      {
+        "id": "91cd56cd-494c-4cc8-a69f-348b599467ae",
+        "name": "Buttermilk",
+        "quantity": "1 3/4 cups"
+      },
+      {
+        "id": "6764845e-807d-48e1-a2e5-68b1822159e9",
+        "name": "Eggs",
+        "quantity": "2 large"
+      },
+      {
+        "id": "19dd8864-53fe-42d5-8d22-4365de09e046",
+        "name": "Sugar",
+        "quantity": "2 tbsp"
+      },
+      {
+        "id": "72fb446c-e189-48f3-83c5-e7c753df1a17",
+        "name": "Baking powder",
+        "quantity": "2 tsp"
+      },
+      {
+        "id": "4bf5e81b-3e7c-4277-ab34-2f14df9df5a6",
+        "name": "Salt",
+        "quantity": "1 tsp"
+      },
+      {
+        "id": "4f8b26ab-2cbc-46d4-8081-cb1ade3c4c75",
+        "name": "Butter",
+        "quantity": "4 tbsp",
+        "preparation": "melted"
+      }
+    ],
+    "steps": [
+      {
+        "id": "659fd0c4-9754-4e4a-a8a0-0116595ff70a",
+        "order": 1,
+        "instruction": "Mix dry ingredients in a large bowl"
+      },
+      {
+        "id": "be70688c-f00d-43d8-bf24-907505536ade",
+        "order": 2,
+        "instruction": "Whisk together wet ingredients in another bowl"
+      },
+      {
+        "id": "e5e41239-c06a-4c17-b5fb-45a95ad66cb9",
+        "order": 3,
+        "instruction": "Combine wet and dry ingredients until just mixed"
+      },
+      {
+        "id": "e5651e64-d516-4876-8492-4e1418c88a82",
+        "order": 4,
+        "instruction": "Cook pancakes on griddle until bubbles form, then flip",
+        "timerMinutes": 6
+      }
+    ],
+    "servings": 4,
+    "prepTimeMinutes": 10,
+    "cookTimeMinutes": 15,
+    "totalTimeMinutes": 25,
+    "likes": 26,
+    "dislikes": 0,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "e84218bc-ea03-401e-b883-014ce522511b",
+    "title": "Caesar Salad",
+    "description": "Classic Caesar salad with homemade dressing and croutons",
+    "author": "Salad Supreme",
+    "imageUrl": "/seed-data/images/dish10.jpg",
+    "tags": [
+      "lunch",
+      "vegetarian"
+    ],
+    "ingredients": [
+      {
+        "id": "0f332dc3-8114-4f03-9b72-12a33a7548cd",
+        "name": "Romaine lettuce",
+        "quantity": "2 heads",
+        "preparation": "chopped"
+      },
+      {
+        "id": "aa7008a3-0375-4762-9956-c406db4d7721",
+        "name": "Parmesan cheese",
+        "quantity": "1/2 cup",
+        "preparation": "grated"
+      },
+      {
+        "id": "6dfd6139-cb42-4e34-8ee1-dfbcbf59da76",
+        "name": "Croutons",
+        "quantity": "1 cup"
+      },
+      {
+        "id": "6ceced74-ddeb-4711-96c9-2dcfa64c2d19",
+        "name": "Mayonnaise",
+        "quantity": "1/3 cup"
+      },
+      {
+        "id": "a3d67a04-092d-428f-a86d-401697b3dbde",
+        "name": "Lemon juice",
+        "quantity": "2 tbsp"
+      },
+      {
+        "id": "5b910670-2ecd-4d7b-8ff0-bea13abfe11c",
+        "name": "Worcestershire sauce",
+        "quantity": "1 tsp"
+      },
+      {
+        "id": "9173580b-ca4e-4dda-a010-596ce2f89eca",
+        "name": "Garlic",
+        "quantity": "2 cloves",
+        "preparation": "minced"
+      }
+    ],
+    "steps": [
+      {
+        "id": "6f521c21-c359-41bd-b8c5-1dba34a15f7a",
+        "order": 1,
+        "instruction": "Wash and chop romaine lettuce"
+      },
+      {
+        "id": "e33675aa-a84d-44eb-85e0-b3f53525d651",
+        "order": 2,
+        "instruction": "Make dressing by whisking mayo, lemon juice, Worcestershire, and garlic"
+      },
+      {
+        "id": "791f8ffc-2471-4ae1-926a-9ae38edce637",
+        "order": 3,
+        "instruction": "Toss lettuce with dressing"
+      },
+      {
+        "id": "f2955aed-2254-45a7-9d66-8c6a41ce93de",
+        "order": 4,
+        "instruction": "Top with Parmesan and croutons"
+      }
+    ],
+    "servings": 4,
+    "prepTimeMinutes": 15,
+    "totalTimeMinutes": 15,
+    "likes": 34,
+    "dislikes": 1,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "824e94be-2d34-4bd7-bb36-7bd5856a7da0",
+    "title": "Vegetable Curry",
+    "description": "Aromatic and creamy vegetable curry with coconut milk",
+    "author": "Spice Route",
+    "imageUrl": "/seed-data/images/dish11.jpg",
+    "tags": [
+      "dinner",
+      "vegetarian",
+      "vegan",
+      "healthy"
+    ],
+    "ingredients": [
+      {
+        "id": "038f8906-3b6b-4994-918f-b9eb8fcce229",
+        "name": "Mixed vegetables",
+        "quantity": "4 cups",
+        "preparation": "chopped (carrots, potatoes, peas)"
+      },
+      {
+        "id": "1b2e8882-afbc-4e91-8bab-e3ba830af98e",
+        "name": "Coconut milk",
+        "quantity": "1 can"
+      },
+      {
+        "id": "a87a23d7-cb33-4d7d-8735-37cd3712b1f8",
+        "name": "Onion",
+        "quantity": "1 large",
+        "preparation": "diced"
+      },
+      {
+        "id": "b0f738bb-028f-4c98-911f-62f14747c406",
+        "name": "Curry powder",
+        "quantity": "2 tbsp"
+      },
+      {
+        "id": "218ec7ea-9e47-42a9-bb56-2a95d91c0422",
+        "name": "Ginger",
+        "quantity": "1 tbsp",
+        "preparation": "grated"
+      },
+      {
+        "id": "656a40ff-d4b0-4568-a632-496cdf6c0fd4",
+        "name": "Garlic",
+        "quantity": "3 cloves",
+        "preparation": "minced"
+      },
+      {
+        "id": "25a431e5-362e-47e0-bb8a-7530319b2d2a",
+        "name": "Vegetable oil",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "id": "cbef3484-3e9d-47b9-94df-0cd42b093f01",
+        "order": 1,
+        "instruction": "Heat oil in large pot and sauté onion until soft",
+        "timerMinutes": 5
+      },
+      {
+        "id": "b6f3c0f7-5cfa-43d7-be17-797cb4faac0b",
+        "order": 2,
+        "instruction": "Add garlic, ginger, and curry powder, cook for 1 minute"
+      },
+      {
+        "id": "3a706750-09d7-4bcc-8ab7-b0770a3c561b",
+        "order": 3,
+        "instruction": "Add vegetables and coconut milk"
+      },
+      {
+        "id": "10917e28-ac29-4871-9e68-21aeb55f3648",
+        "order": 4,
+        "instruction": "Simmer until vegetables are tender",
+        "timerMinutes": 20
+      },
+      {
+        "id": "ecded8e6-cae9-44f8-8519-a9b9c18168ba",
+        "order": 5,
+        "instruction": "Serve over rice"
+      }
+    ],
+    "servings": 6,
+    "prepTimeMinutes": 15,
+    "cookTimeMinutes": 25,
+    "totalTimeMinutes": 40,
+    "likes": 14,
+    "dislikes": 4,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  },
+  {
+    "id": "161593c9-9555-4df8-9e4e-e9538d374965",
+    "title": "Iced Coffee",
+    "description": "Refreshing cold brew coffee perfect for hot days",
+    "author": "Caffeine Queen",
+    "imageUrl": "/seed-data/images/dish12.jpg",
+    "tags": [
+      "beverage",
+      "quick"
+    ],
+    "ingredients": [
+      {
+        "id": "76e51e9c-d17c-49c7-9196-6e66856a7498",
+        "name": "Strong coffee",
+        "quantity": "2 cups",
+        "preparation": "cooled"
+      },
+      {
+        "id": "a9f96c31-dfdf-4466-b4e0-f4600164bb44",
+        "name": "Ice cubes",
+        "quantity": "2 cups"
+      },
+      {
+        "id": "262f5ca0-c49c-4087-94d4-b16cde707fd7",
+        "name": "Milk or cream",
+        "quantity": "1/4 cup",
+        "optional": true
+      },
+      {
+        "id": "9b3c64d7-3c87-4fad-b669-aa8481b4c12d",
+        "name": "Sugar or sweetener",
+        "quantity": "to taste",
+        "optional": true
+      },
+      {
+        "id": "dabfd398-cfad-4154-8855-ce2cea28e938",
+        "name": "Vanilla extract",
+        "quantity": "1/2 tsp",
+        "optional": true
+      }
+    ],
+    "steps": [
+      {
+        "id": "e62c6a5f-d65e-4e94-bdf0-3fb25d686136",
+        "order": 1,
+        "instruction": "Brew strong coffee and let cool completely"
+      },
+      {
+        "id": "7a00cc8c-21be-424e-b212-c6ee4020776c",
+        "order": 2,
+        "instruction": "Fill glasses with ice cubes"
+      },
+      {
+        "id": "3add2223-f843-4ae6-b945-c85ebf2ca2a6",
+        "order": 3,
+        "instruction": "Pour coffee over ice"
+      },
+      {
+        "id": "53fcd1b1-d5a9-4a4e-8085-c8c19ccfe98d",
+        "order": 4,
+        "instruction": "Add milk, sweetener, and vanilla if desired"
+      },
+      {
+        "id": "5b041ea2-3dd6-418b-9ae0-01d83e7d5754",
+        "order": 5,
+        "instruction": "Stir and serve immediately"
+      }
+    ],
+    "servings": 2,
+    "prepTimeMinutes": 5,
+    "totalTimeMinutes": 5,
+    "likes": 48,
+    "dislikes": 4,
+    "createdAt": "2025-09-18T13:47:54.468Z",
+    "updatedAt": "2025-09-18T13:47:54.468Z"
+  }
+]

@@ -38,6 +38,8 @@ type RecipeFormProps = {
   onSubmit: (values: RecipeFormValues) => void | Promise<void>;
   onPreviewChange?: (values: RecipeFormValues) => void;
   isStoreReady?: boolean;
+  saveMessage?: string | null;
+  onDismissSaveMessage?: () => void;
 };
 
 const isPlainObject = (
@@ -115,6 +117,8 @@ export function RecipeForm({
   onSubmit,
   onPreviewChange,
   isStoreReady = true,
+  saveMessage,
+  onDismissSaveMessage,
 }: RecipeFormProps) {
   const defaultValues = useMemo(() => createRecipeFormDefaults(), []);
   const form = useForm<RecipeFormValues>({
@@ -844,6 +848,23 @@ export function RecipeForm({
               </p>
             ) : null}
           </div>
+          {saveMessage ? (
+            <div
+              className="flex items-center justify-between gap-3 rounded-md border border-primary/30 bg-primary/5 px-4 py-3 text-sm"
+              role="status"
+              aria-live="polite"
+            >
+              <span>{saveMessage}</span>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={onDismissSaveMessage}
+              >
+                Dismiss
+              </Button>
+            </div>
+          ) : null}
           {submitDisabled && completionHints.length > 0 ? (
             <ul className="list-disc space-y-1 pl-5 text-sm text-muted-foreground">
               {completionHints.map((hint) => (

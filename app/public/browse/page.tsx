@@ -13,7 +13,7 @@ export default function BrowsePage() {
           your collection.
         </p>
       </div>
-      <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
+      <div className="space-y-6">
         <RecipeFilters />
         <RecipeList />
       </div>
