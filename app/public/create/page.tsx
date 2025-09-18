@@ -18,6 +18,12 @@ import {
 export default function CreateRecipePage() {
   const { isHydrated } = useRecipes();
 
+  // Debug logging for store readiness
+  console.log("[CreateRecipePage] Store readiness:", {
+    isHydrated,
+    timestamp: new Date().toISOString()
+  });
+
   const addRecipe = useRecipesStore((state) => state.addRecipe);
 
   const [previewValues, setPreviewValues] = useState<RecipeFormValues>(() =>

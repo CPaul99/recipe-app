@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ChangeEvent,
 } from "react";
@@ -11,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Controller,
   FormProvider,
+  type FieldErrors,
   useFieldArray,
   useForm,
 } from "react-hook-form";
@@ -36,6 +38,61 @@ type RecipeFormProps = {
   onSubmit: (values: RecipeFormValues) => void | Promise<void>;
   onPreviewChange?: (values: RecipeFormValues) => void;
   isStoreReady?: boolean;
+};
+
+const isPlainObject = (
+  value: unknown,
+): value is Record<string, unknown> => {
+  if (typeof value !== "object" || value === null) {
+    return false;
+  }
+
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+};
+
+const extractErrorMessages = (
+  errors: FieldErrors<RecipeFormValues>,
+): string[] => {
+  const messages = new Set<string>();
+  const visited = new WeakSet<object>();
+
+  const visit = (value: unknown) => {
+    if (!value) {
+      return;
+    }
+
+    if (typeof value === "string") {
+      messages.add(value);
+      return;
+    }
+
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+      return;
+    }
+
+    if (typeof value === "object") {
+      if (visited.has(value as object)) {
+        return;
+      }
+
+      visited.add(value as object);
+
+      const maybeMessage = (value as { message?: unknown }).message;
+      if (typeof maybeMessage === "string") {
+        messages.add(maybeMessage);
+      }
+
+      if (isPlainObject(value)) {
+        Object.values(value as Record<string, unknown>).forEach(visit);
+      }
+    }
+  };
+
+  visit(errors);
+
+  return Array.from(messages);
 };
 
 const toDataUrl = (file: File) =>
@@ -64,6 +121,9 @@ export function RecipeForm({
     resolver: zodResolver(recipeFormSchema),
     defaultValues,
     mode: "onChange",
+    reValidateMode: "onChange",
+    criteriaMode: "all",
+    shouldUseNativeValidation: false,
   });
 
   const {
@@ -81,14 +141,21 @@ export function RecipeForm({
 
   const { errors, isSubmitting, isValid } = formState;
 
-  const ingredientFields = useFieldArray({
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const ingredientFields = useFieldArray<
+    RecipeFormValues,
+    "ingredients",
+    "fieldId"
+  >({
     control,
     name: "ingredients",
+    keyName: "fieldId",
   });
 
-  const stepFields = useFieldArray({
+  const stepFields = useFieldArray<RecipeFormValues, "steps", "fieldId">({
     control,
     name: "steps",
+    keyName: "fieldId",
   });
 
   const [uploadedImageName, setUploadedImageName] = useState<
@@ -104,6 +171,9 @@ export function RecipeForm({
   const isUsingFallbackImage = imageValue === DEFAULT_RECIPE_IMAGE;
 
   const activeTags = watch("tags");
+  const titleValue = watch("title");
+  const ingredientValues = watch("ingredients");
+  const stepValues = watch("steps");
 
   useEffect(() => {
     onPreviewChange?.(form.getValues());
@@ -116,6 +186,17 @@ export function RecipeForm({
 
     return () => subscription.unsubscribe();
   }, [watch, form, onPreviewChange]);
+
+  // Track form validation state changes
+  useEffect(() => {
+    console.log("[RecipeForm] Form state changed:", {
+      isValid,
+      isDirty: formState.isDirty,
+      isSubmitting,
+      errorCount: Object.keys(errors).length,
+      timestamp: new Date().toISOString()
+    });
+  }, [isValid, formState.isDirty, isSubmitting, errors]);
 
   const reindexSteps = useCallback(() => {
     const nextSteps = getValues("steps");
@@ -249,11 +330,81 @@ export function RecipeForm({
 
   const imageError = errors.imageUrl?.message;
   const submitDisabled = isSubmitting || !isValid || !isStoreReady;
+
+  // Debug logging for button state
+  console.log("[RecipeForm] Button state debug:", {
+    isSubmitting,
+    isValid,
+    isStoreReady,
+    submitDisabled,
+    hasErrors: Object.keys(errors).length > 0,
+    errorKeys: Object.keys(errors),
+  });
+
+  // Detailed form validation logging
+  console.log("[RecipeForm] Form validation details:", {
+    title: { value: titleValue, length: titleValue?.length || 0, valid: titleValue && titleValue.trim().length >= 3 },
+    ingredients: {
+      count: ingredientValues?.length || 0,
+      hasValidIngredient: ingredientValues?.some(ing => ing?.name?.trim()),
+      details: ingredientValues?.map((ing, i) => ({ index: i, name: ing?.name, hasName: !!ing?.name?.trim() }))
+    },
+    steps: {
+      count: stepValues?.length || 0,
+      hasValidStep: stepValues?.some(step => step?.instruction?.trim()),
+      details: stepValues?.map((step, i) => ({ index: i, instruction: step?.instruction, hasInstruction: !!step?.instruction?.trim() }))
+    },
+    errors: errors
+  });
+
   const submitLabel = !isStoreReady
     ? "Preparing storage..."
     : isSubmitting
       ? "Saving..."
       : "Save recipe";
+
+  const imageStatusMessage = uploadedImageName
+    ? `Selected: ${uploadedImageName}`
+    : isUsingFallbackImage
+      ? "Using fallback image"
+      : imageValue
+        ? "Using image URL"
+        : "No image selected";
+
+  const completionHints = useMemo(() => {
+    if (isValid) {
+      return [];
+    }
+
+    const messages = extractErrorMessages(errors);
+
+    if (messages.length > 0) {
+      return messages;
+    }
+
+    const hints = new Set<string>();
+    if (!titleValue || titleValue.trim().length < 3) {
+      hints.add("Add a title with at least 3 characters");
+    }
+
+    const hasIngredientName = ingredientValues?.some((ingredient) => {
+      const name = ingredient?.name ?? "";
+      return name.trim().length > 0;
+    });
+    if (!hasIngredientName) {
+      hints.add("Add at least one ingredient with a name");
+    }
+
+    const hasStepInstruction = stepValues?.some((step) => {
+      const instruction = step?.instruction ?? "";
+      return instruction.trim().length > 0;
+    });
+    if (!hasStepInstruction) {
+      hints.add("Add at least one step with instructions");
+    }
+
+    return Array.from(hints);
+  }, [errors, ingredientValues, isValid, stepValues, titleValue]);
 
   return (
     <FormProvider {...form}>
@@ -353,17 +504,27 @@ export function RecipeForm({
               <label className="text-sm font-medium" htmlFor="image-upload">
                 Image upload
               </label>
-              <Input
+              <input
+                ref={fileInputRef}
                 id="image-upload"
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
+                className="sr-only"
               />
-              {uploadedImageName ? (
-                <p className="text-sm text-muted-foreground">
-                  Selected: {uploadedImageName}
-                </p>
-              ) : null}
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  {uploadedImageName ? "Change image" : "Choose image"}
+                </Button>
+                <span className="text-sm text-muted-foreground">
+                  {imageStatusMessage}
+                </span>
+              </div>
               {imageError ? (
                 <p className="text-sm text-destructive">{imageError}</p>
               ) : null}
@@ -505,7 +666,7 @@ export function RecipeForm({
               {ingredientFields.fields.map((field, index) => {
                 const fieldErrors = errors.ingredients?.[index];
                 return (
-                  <div key={field.id} className="rounded-lg border p-4">
+                  <div key={field.fieldId} className="rounded-lg border bg-neutral-50 p-4">
                     <div className="flex items-start justify-between gap-3">
                       <span className="text-sm font-medium">
                         Ingredient {index + 1}
@@ -601,7 +762,7 @@ export function RecipeForm({
               {stepFields.fields.map((field, index) => {
                 const fieldErrors = errors.steps?.[index];
                 return (
-                  <div key={field.id} className="rounded-lg border p-4">
+                  <div key={field.fieldId} className="rounded-lg border bg-neutral-50 p-4">
                     <div className="flex items-start justify-between gap-3">
                       <span className="text-sm font-medium">
                         Step {index + 1}
@@ -659,27 +820,36 @@ export function RecipeForm({
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <Button type="submit" disabled={submitDisabled}>
-            {submitLabel}
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => {
-              const nextDefaults = createRecipeFormDefaults();
-              reset(nextDefaults);
-              setUploadedImageName(undefined);
-              onPreviewChange?.(nextDefaults);
-            }}
-          >
-            Reset
-          </Button>
-          {!isStoreReady ? (
-            <p className="text-sm text-muted-foreground">
-              Recipes are still syncing. Saving is disabled until the store is
-              ready.
-            </p>
+        <div className="space-y-2">
+          <div className="flex flex-wrap items-center gap-3">
+            <Button type="submit" disabled={submitDisabled}>
+              {submitLabel}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => {
+                const nextDefaults = createRecipeFormDefaults();
+                reset(nextDefaults);
+                setUploadedImageName(undefined);
+                onPreviewChange?.(nextDefaults);
+              }}
+            >
+              Reset
+            </Button>
+            {!isStoreReady ? (
+              <p className="text-sm text-muted-foreground">
+                Recipes are still syncing. Saving is disabled until the store is
+                ready.
+              </p>
+            ) : null}
+          </div>
+          {submitDisabled && completionHints.length > 0 ? (
+            <ul className="list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+              {completionHints.map((hint) => (
+                <li key={hint}>{hint}</li>
+              ))}
+            </ul>
           ) : null}
         </div>
       </form>

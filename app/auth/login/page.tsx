@@ -84,9 +84,6 @@ export default function LoginPage() {
     <section className="container mx-auto grid min-h-[calc(100vh-10rem)] items-center gap-12 py-12 lg:grid-cols-[1.05fr_minmax(0,1fr)] lg:py-20">
       <div className="space-y-6">
         <div className="space-y-4">
-          <p className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-            Recipe Manager
-          </p>
           <h1 className="text-4xl font-semibold tracking-tight lg:text-5xl">
             Sign in to keep your kitchen organized
           </h1>
@@ -97,11 +94,11 @@ export default function LoginPage() {
           </p>
         </div>
         <dl className="grid gap-4 text-sm text-muted-foreground sm:grid-cols-2">
-          <div className="rounded-lg border border-border/70 p-4">
+          <div className="rounded-lg border border-border/70 bg-neutral-50 p-4">
             <dt className="font-medium text-foreground">Personalize meals</dt>
             <dd>Favorite, tag, and sort recipes tailored to your taste.</dd>
           </div>
-          <div className="rounded-lg border border-border/70 p-4">
+          <div className="rounded-lg border border-border/70 bg-neutral-50 p-4">
             <dt className="font-medium text-foreground">Sync across devices</dt>
             <dd>Recipes stay available offline with IndexedDB storage.</dd>
           </div>
@@ -112,10 +109,9 @@ export default function LoginPage() {
         <Card>
           <CardHeader className="space-y-4">
             <div>
-              <CardTitle className="text-2xl">Welcome back</CardTitle>
+              <CardTitle className="text-2xl pb-1">Welcome back</CardTitle>
               <CardDescription>
-                Switch between login and sign up. These flows are placeholder
-                forms pending the final auth integration.
+                Enter your details to get cooking!
               </CardDescription>
             </div>
             <TabsList className="grid w-full grid-cols-2">

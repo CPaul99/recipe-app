@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRecipesStore } from "@/lib/stores/recipes-store";
 import { ALL_RECIPE_TAGS, type RecipeTag } from "@/lib/types/recipe";
+import { cn } from "@/lib/utils";
 
 const formatTagLabel = (tag: RecipeTag) =>
   tag.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
@@ -25,15 +26,16 @@ export function RecipeFilters() {
     selectedTagSet.size !== ALL_RECIPE_TAGS.length;
 
   return (
-    <div className="space-y-4 rounded-lg border bg-card p-4 shadow-sm">
-      <div className="space-y-2">
+    <div className="space-y-3 rounded-lg border bg-card p-4 shadow-sm">
+      <div className="space-y-1">
         <h2 className="text-lg font-semibold">Filters</h2>
         <p className="text-sm text-muted-foreground">
           Search recipes or toggle tags to refine the list.
         </p>
       </div>
+
       <div className="space-y-3">
-        <label className="space-y-1 text-sm font-medium">
+        <label className="text-sm font-medium">
           <span className="text-muted-foreground">Search</span>
           <Input
             value={searchQuery}
@@ -42,7 +44,7 @@ export function RecipeFilters() {
             onChange={(event) => setSearchQuery(event.target.value)}
           />
         </label>
-        <div className="space-y-2">
+        <div className="space-y-2 mt-3">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-muted-foreground">
               Tags
@@ -65,8 +67,13 @@ export function RecipeFilters() {
                 <Badge
                   key={tag}
                   asChild
-                  variant={isSelected ? "secondary" : "outline"}
-                  className="cursor-pointer select-none transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  variant="outline"
+                  className={cn(
+                    "cursor-pointer select-none transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                    isSelected
+                      ? "border-emerald-200 bg-emerald-100 text-emerald-900 hover:bg-emerald-200"
+                      : "border-rose-200 bg-rose-100 text-rose-900 hover:bg-rose-200",
+                  )}
                 >
                   <button
                     type="button"

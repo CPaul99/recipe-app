@@ -2,7 +2,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border/60 bg-muted/40 py-8 text-sm text-muted-foreground">
+    <footer className="border-t border-border/60 bg-green-100 py-8 text-sm text-muted-foreground">
       <div className="page-container flex flex-col items-center gap-4 text-center">
         <span className="text-base font-semibold tracking-tight text-foreground">
           Recipe Manager

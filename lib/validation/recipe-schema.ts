@@ -188,7 +188,7 @@ export const recipeFormSchema = z
     }
   });
 
-export type RecipeFormValues = z.infer<typeof recipeFormSchema>;
+export type RecipeFormValues = z.input<typeof recipeFormSchema>;
 
 export const createEmptyIngredient =
   (): RecipeFormValues["ingredients"][number] => ({

@@ -11,7 +11,7 @@ export function ShellLayout({ children }: ShellLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
-      <main className="flex-1 section-spacing-y">
+      <main className="flex-1 bg-gradient-to-b from-yellow-50 via-green-50 to-yellow-50 section-spacing-y">
         <div className="page-container">{children}</div>
       </main>
       <Footer />

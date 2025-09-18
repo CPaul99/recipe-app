@@ -33,7 +33,7 @@ export function MobileDrawer() {
         <nav className="flex flex-col gap-4 text-base font-medium">
           <SheetClose asChild>
             <Link
-              href="/browse"
+              href="/public/browse"
               prefetch={false}
               className="transition-colors hover:text-foreground"
             >
@@ -42,7 +42,7 @@ export function MobileDrawer() {
           </SheetClose>
           <SheetClose asChild>
             <Link
-              href="/create"
+              href="/public/create"
               prefetch={false}
               className="transition-colors hover:text-foreground"
             >
@@ -51,7 +51,7 @@ export function MobileDrawer() {
           </SheetClose>
           <SheetClose asChild>
             <Link
-              href="/login"
+              href="/auth/login"
               prefetch={false}
               className="transition-colors hover:text-foreground"
             >

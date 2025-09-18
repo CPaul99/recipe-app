@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 
-import { RecipeCard } from "@/app/(public)/browse/_components/recipe-card";
+import { RecipeCard } from "@/app/public/browse/_components/recipe-card";
 import type { Recipe } from "@/lib/types/recipe";
 import {
   recipeFormValuesToCreateInput,
