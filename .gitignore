@@ -19,7 +19,7 @@
 
 # production
 /build
-/scrap/txt
+/scrap
 
 # misc
 .DS_Store

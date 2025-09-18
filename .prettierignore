@@ -1,0 +1,13 @@
+.next
+node_modules
+public
+bun.lock
+
+# Build output
+out
+build
+dist
+
+# Generated files
+*.log
+

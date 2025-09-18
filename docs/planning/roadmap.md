@@ -1,24 +1,25 @@
 # Roadmap
 
 ## Objective
-Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the next 4 focused hours, using the existing Next.js + Bun stack with Tailwind, shadcn/ui, Zustand, Zod, and idb-keyval for IndexedDB persistence. This roadmap aligns tasks with timeboxes, clarifies where code will live, and keeps the build modular.
 
-## Timeboxed Execution Plan (4 Hours)
-- Scaffold missing folders (`components/`, `features/`, `lib/stores/`, `lib/types/`, `lib/storage/`).
+Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the next 4 focused hours, using the existing Next.js + Bun stack with Tailwind, shadcn/ui, Zustand, Zod, and idb-keyval for IndexedDB persistence. This roadmap aligns tasks with timeboxes, clarifies where code will live, and keeps the build modular. Always use shadcn components whenever possible.
 
-**0:15 – 0:45 · Global Layout & Navigation Shell**
-- Replace `app/layout.tsx` to load font, global providers (Zustand context if needed), and wrap pages in `<ShellLayout>`.
-- Build `components/layout/header.tsx` and `components/layout/mobile-drawer.tsx` for desktop/header vs. collapsed hamburger logic.
-- Add `components/layout/footer.tsx` with branding copy.
-- Compose into `features/layout/shell-layout.tsx` to centralize header/footer usage.
+**· Global Layout & Navigation Shell**
 
-**0:45 – 1:30 · Core Data Models & Store**
-- Define `lib/types/recipe.ts` (Recipe, Ingredient, Step types, enums for tags).
-- Implement Zustand store `lib/stores/recipes-store.ts` with CRUD, like/dislike counters, selectors.
-- Create persistence helper `lib/storage/recipes.ts` wrapping idb-keyval (init, load, merge, subscribe).
-- Wire store hydration effect via custom hook in `lib/hooks/use-recipes.ts`.
+- [DONE] Replace `app/layout.tsx` to load font, global providers (Zustand context if needed), and wrap pages in `<ShellLayout>`.
+- [DONE] Build `components/layout/header.tsx` and `components/layout/mobile-drawer.tsx` for desktop/header vs. collapsed hamburger logic.
+- [DONE] Add `components/layout/footer.tsx` with branding copy.
+- [DONE] Compose into `features/layout/shell-layout.tsx` to centralize header/footer usage.
 
-**1:30 – 2:15 · Browse Recipes Page MVP**
+**· Core Data Models & Store**
+
+- [DONE] Define `lib/types/recipe.ts` (Recipe, Ingredient, Step types, enums for tags).
+- [DONE] Implement Zustand store `lib/stores/recipes-store.ts` with CRUD, like/dislike counters, selectors.
+- [DONE] Create persistence helper `lib/storage/recipes.ts` wrapping idb-keyval (init, load, merge, subscribe).
+- [DONE] Wire store hydration effect via custom hook in `lib/hooks/use-recipes.ts`.
+
+**· Browse Recipes Page MVP**
+
 - Route: `app/(public)/browse/page.tsx` (make `/` redirect to `/browse`).
 - Local components inside `app/(public)/browse/_components/`:
   - `recipe-filters.tsx` (search + tag toggles using shadcn/ui `Input`, `Badge`).
@@ -28,6 +29,7 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
 - Tailwind utility adjustments in `app/globals.css` for layout spacing.
 
 **2:15 – 3:00 · Create Recipe Page & Form Validation**
+
 - Route: `app/(public)/create/page.tsx`.
 - Form module folder `app/(public)/create/_components/`:
   - `recipe-form.tsx` using `react-hook-form` + Zod schema from `lib/validation/recipe-schema.ts` with `@hookform/resolvers/zod`.
@@ -36,11 +38,13 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
 - Invoke store actions to persist new recipes and sync to IndexedDB.
 
 **3:00 – 3:30 · Auth Page Shell (Optional Stretch to Datastore)**
+
 - Route: `app/(auth)/login/page.tsx` with two-column layout using shadcn/ui `Tabs` or `Card` components.
 - Basic `react-hook-form` handlers for login/signup (no backend; stub validation). Focus on UI parity with brief.
 - If time runs short, document this as a stretch item in README and leave route scaffolded.
 
 **3:30 – 4:00 · Polish, QA, Documentation**
+
 - Responsive tweaks (header collapse breakpoints, card grid) using Tailwind in relevant components.
 - Implement likes/dislikes persistence, ensure search + tags state persists via URL params or local store.
 - Smoke test flows: create recipe, browse, filter.
@@ -48,6 +52,7 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
 - Commit with descriptive messages and ensure linting (`bun lint` if configured) passes.
 
 ## Modular Code Structure
+
 - `app/`
   - `layout.tsx`, `page.tsx` (redirect logic).
   - `(public)/browse/page.tsx` and `(public)/create/page.tsx` for main experiences.
@@ -71,6 +76,7 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
   - `planning/roadmap.md` (this doc), retain `plan.md` and `challenge.md` for traceability.
 
 ## Key Implementation Notes
+
 - **State Management:** Use a single Zustand store to drive both browse and create pages. Persist to IndexedDB on changes; hydrate on load before rendering recipe lists.
 - **Form Validation:** Zod schemas enforce title/ingredient/step constraints. Use `useFieldArray` for dynamic ingredients/steps and limit to seven steps.
 - **UI Components:** Favor shadcn primitives for consistent styling; wrap them in thin adapters if repeated (e.g., `FormField` wrapper for RHF).
@@ -78,11 +84,13 @@ Deliver the Recipe Manager MVP described in `docs/planning/plan.md` within the n
 - **Accessibility:** Ensure semantic headings, `aria` labels on buttons (like/dislike), keyboard-friendly navigation in filters.
 
 ## Testing & QA Checklist
+
 - Quick unit test for store logic in `features/recipes/__tests__/recipes-store.test.ts` (if time permits, using Bun test runner).
 - Manual QA matrix: create recipe, reload to verify persistence, filter by tag, search by keyword, toggle likes/dislikes.
 - Verify layout on mobile/desktop breakpoints, including header collapse and form preview stacking.
 
 ## Stretch Improvements (Document if Time Runs Out)
+
 - Comment threads for recipes stored in Zustand (persisted to IndexedDB).
 - Image upload compression & drag-and-drop support.
 - Auth form integration with Supabase or NextAuth (future).
